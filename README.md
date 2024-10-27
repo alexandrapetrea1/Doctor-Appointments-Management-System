@@ -19,4 +19,5 @@ This application is designed to help clinics and patients efficiently manage doc
 - To provide patients with an easy way to manage their appointments.
 
 
-<img width="580" alt="Captură de ecran din 2024-10-27 la 21 26 40" src="https://github.com/user-attachments/assets/d7449378-a4eb-4075-9d5b-60e6f1402391">
+
+<img width="586" alt="Captură de ecran din 2024-10-28 la 01 18 16" src="https://github.com/user-attachments/assets/f37d99e9-a15b-4b66-a5c2-0480eaa4e9f8">
