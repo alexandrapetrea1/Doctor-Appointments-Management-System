@@ -20,4 +20,5 @@ This application is designed to help clinics and patients efficiently manage doc
 
 
 
-<img width="586" alt="Captură de ecran din 2024-10-28 la 01 18 16" src="https://github.com/user-attachments/assets/f37d99e9-a15b-4b66-a5c2-0480eaa4e9f8">
+
+<img width="588" alt="Captură de ecran din 2024-10-28 la 10 16 30" src="https://github.com/user-attachments/assets/c092cc32-d474-4227-884b-877c5f6c5f30">
