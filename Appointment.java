@@ -3,14 +3,15 @@ public class Appointment {
     private int appointmentID;
     private String time;
     private Patient patient;
+    private Doctor doctor;
     private String reason;
 
-    public Appointment(int appointmentID, String date, String time, Patient patient, String reason) {
+    public Appointment(int appointmentID, String date, String time, Patient patient,Doctor doctor, String reason) {
         this.appointmentID = appointmentID;
         this.date = date;
         this.time = time;
         this.patient = patient;
-        //this.doctor = doctor;
+        this.doctor = doctor;
         this.reason = reason;
     }
 
@@ -58,6 +59,7 @@ public class Appointment {
     public String toString() {
         return "Appointment [ID: " + appointmentID + ", Date: " + date + ", Time: " + time +
                 ", Patient: " + patient.getFirstName() + " " + patient.getLastName() +
+                ", Doctor: " + doctor.getFirstName() + " " + doctor.getLastName() +
                 ", Reason: " + reason + "]";
     }
 }
