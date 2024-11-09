@@ -1,11 +1,13 @@
+package src.Model;
+
 import java.time.LocalDateTime;
 
 public class Notification {
     private String notificationType;
     private LocalDateTime notificationDate;
-    private Person recipient;
+    private src.Model.Person recipient;
 
-    public Notification(String notificationType, LocalDateTime notificationDate, Person recipient) {
+    public Notification(String notificationType, LocalDateTime notificationDate, src.Model.Person recipient) {
         this.notificationType = notificationType;
         this.notificationDate = notificationDate;
         this.recipient = recipient;
@@ -27,17 +29,17 @@ public class Notification {
         this.notificationDate = notificationDate;
     }
 
-    public Person getRecipient() {
+    public src.Model.Person getRecipient() {
         return recipient;
     }
 
-    public void setRecipient(Person recipient) {
+    public void setRecipient(src.Model.Person recipient) {
         this.recipient = recipient;
     }
 
     @Override
     public String toString() {
-        return "Notification [Type: " + notificationType + ", Date: " + notificationDate +
+        return "src.model.Notification [Type: " + notificationType + ", Date: " + notificationDate +
                 ", Recipient: " + recipient.getFirstName() + " " + recipient.getLastName() + "]";
     }
 }

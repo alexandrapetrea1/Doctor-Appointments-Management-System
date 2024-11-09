@@ -1,3 +1,5 @@
+package src.Model;
+
 public class Is_Employed {
     private int doctorID;
     private int clinicID;
@@ -21,6 +23,6 @@ public class Is_Employed {
 
     @Override
     public String toString() {
-        return "Employment [Doctor ID: " + doctorID + ", Clinic ID: " + clinicID + "]";
+        return "Employment [src.model.Doctor ID: " + doctorID + ", src.model.Clinic ID: " + clinicID + "]";
     }
 }

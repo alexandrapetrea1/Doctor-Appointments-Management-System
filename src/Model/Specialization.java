@@ -1,3 +1,5 @@
+package src.Model;
+
 public class Specialization {
     private int specializationID;
     private String name;
@@ -35,7 +37,7 @@ public class Specialization {
 
     @Override
     public String toString() {
-        return "Specialization [ID: " + specializationID + ", Name: " + name +
+        return "src.model.Specialization [ID: " + specializationID + ", Name: " + name +
                 ", Description: " + description + "]";
     }
 }

@@ -1,3 +1,5 @@
+package src.Model;
+
 public class ContactInfo {
     private String phoneNumber;
     private String email;
@@ -35,6 +37,6 @@ public class ContactInfo {
 
     @Override
     public String toString() {
-        return "ContactInfo [Phone: " + phoneNumber + ", Email: " + email + ", Address: " + address + "]";
+        return "src.model.ContactInfo [Phone: " + phoneNumber + ", Email: " + email + ", Address: " + address + "]";
     }
 }

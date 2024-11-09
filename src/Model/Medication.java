@@ -1,10 +1,12 @@
+package src.Model;
+
 public class Medication {
     private int medicationID;
     private String medicationName;
     private String dosage;
-    private Patient patient;
+    private src.Model.Patient patient;
 
-    public Medication(int medicationID, String name, String dosage, Patient patient) {
+    public Medication(int medicationID, String name, String dosage, src.Model.Patient patient) {
         this.medicationID = medicationID;
         this.medicationName = name;
         this.dosage = dosage;
@@ -35,18 +37,18 @@ public class Medication {
         this.dosage = dosage;
     }
 
-    public Patient getPatient() {
+    public src.Model.Patient getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(src.Model.Patient patient) {
         this.patient = patient;
     }
 
     @Override
     public String toString() {
-        return "Medication [ID: " + medicationID + ", Name: " + medicationName +
-                ", Dosage: " + dosage + ", Patient: " + patient.getFirstName() +
+        return "src.model.Medication [ID: " + medicationID + ", Name: " + medicationName +
+                ", Dosage: " + dosage + ", src.model.Patient: " + patient.getFirstName() +
                 " " + patient.getLastName() + "]";
     }
 }

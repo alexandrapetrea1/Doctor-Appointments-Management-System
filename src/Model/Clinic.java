@@ -1,3 +1,5 @@
+package src.Model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +40,7 @@ public class Clinic {
     }
     @Override
     public String toString() {
-        return "Clinic [ID: " + clinicID +
+        return "src.model.Clinic [ID: " + clinicID +
                 ", Operating Hours: " + operatingHours +
                 ", Doctors: " + listOfDoctors + "]";
     }
