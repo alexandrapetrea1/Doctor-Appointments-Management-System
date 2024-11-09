@@ -1,15 +1,16 @@
+import java.time.LocalDateTime;
+
 public class Appointment {
-    private String date;
+
     private int appointmentID;
-    private String time;
+    private LocalDateTime dateTime;
     private Patient patient;
     private Doctor doctor;
     private String reason;
 
-    public Appointment(int appointmentID, String date, String time, Patient patient,Doctor doctor, String reason) {
+    public Appointment(int appointmentID, LocalDateTime dateTime, Patient patient, Doctor doctor, String reason) {
         this.appointmentID = appointmentID;
-        this.date = date;
-        this.time = time;
+        this.dateTime = dateTime;
         this.patient = patient;
         this.doctor = doctor;
         this.reason = reason;
@@ -23,20 +24,12 @@ public class Appointment {
         this.appointmentID = appointmentID;
     }
 
-    public String getDate(){
-        return this.date;
+    public String getDateTime(){
+        return this.dateTime.toString();
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime(){
-        return this.time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
+    public void setDateTime(String date) {
+        this.dateTime = dateTime;
     }
 
     public Patient getPatient() {
@@ -57,7 +50,7 @@ public class Appointment {
 
     @Override
     public String toString() {
-        return "Appointment [ID: " + appointmentID + ", Date: " + date + ", Time: " + time +
+        return "Appointment [ID: " + appointmentID + ", Date and Time : " + dateTime  +
                 ", Patient: " + patient.getFirstName() + " " + patient.getLastName() +
                 ", Doctor: " + doctor.getFirstName() + " " + doctor.getLastName() +
                 ", Reason: " + reason + "]";

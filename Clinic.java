@@ -36,5 +36,12 @@ public class Clinic {
     public void setOperatingHours(String operatingHours) {
         this.operatingHours = operatingHours;
     }
+    @Override
+    public String toString() {
+        return "Clinic [ID: " + clinicID +
+                ", Operating Hours: " + operatingHours +
+                ", Doctors: " + listOfDoctors + "]";
+    }
+
 
 }

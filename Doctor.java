@@ -3,23 +3,23 @@ import java.util.List;
 
 public class Doctor extends Person {
     private int doctorID;
-    private Specialization specialization;
+    private List<Specialization> specializations;
     private int workingHours;
     private List<Appointment> appointments;
 
-    public Doctor(String firstName, String lastName, int doctorID, Specialization specialization, String workingHours) {
+    public Doctor(String firstName, String lastName, int doctorID, List<Specialization> specializations, String workingHours) {
         super(firstName, lastName);
         this.doctorID = doctorID;
-        this.specialization = specialization;
+        this.specializations = specializations;
         this.appointments = new ArrayList<>();
     }
 
-    public Specialization getSpecialization(){
-        return this.specialization;
+    public List<Specialization> getSpecializations(){
+        return this.specializations;
     }
 
-    public void setSpecialization(Specialization specialization){
-        this.specialization = specialization;
+    public void setSpecialization(List<Specialization> specializations){
+        this.specializations = specializations;
     }
     public int getDoctorID() {
         return doctorID;
@@ -48,7 +48,7 @@ public class Doctor extends Person {
     @Override
     public String toString() {
         return "Doctor [ID: " + doctorID + ", Name: " + getFirstName() + " " + getLastName() +
-                ", Specialization: " + specialization + ", Working Hours: " + workingHours +
+                ", Specializations: " + specializations + ", Working Hours: " + workingHours +
                 ", Appointments: " + appointments + "]";
     }
 }

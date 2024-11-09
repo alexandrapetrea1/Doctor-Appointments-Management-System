@@ -1,9 +1,11 @@
+import java.time.LocalDateTime;
+
 public class Notification {
     private String notificationType;
-    private String notificationDate;
+    private LocalDateTime notificationDate;
     private Person recipient;
 
-    public Notification(String notificationType, String notificationDate, Person recipient) {
+    public Notification(String notificationType, LocalDateTime notificationDate, Person recipient) {
         this.notificationType = notificationType;
         this.notificationDate = notificationDate;
         this.recipient = recipient;
@@ -17,11 +19,11 @@ public class Notification {
         this.notificationType = notificationType;
     }
 
-    public String getNotificationDate(){
+    public LocalDateTime getNotificationDate(){
         return notificationDate;
     }
 
-    public void setNotificationDate(String notificationDate) {
+    public void setNotificationDate(LocalDateTime notificationDate) {
         this.notificationDate = notificationDate;
     }
 
