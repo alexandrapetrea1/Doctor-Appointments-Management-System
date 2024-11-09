@@ -1,12 +1,14 @@
+package src.Model;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Patient extends Person {
+public class Patient extends src.Model.Person {
     private int patientID;
     private ContactInfo contactInfo;
     private List<Appointment> appointments;
-    private List<Medication> medications;
+    private List<src.Model.Medication> medications;
 
     public Patient(String firstName, String lastName, int patientID, ContactInfo contactInfo) {
         super(firstName, lastName);
@@ -34,18 +36,18 @@ public class Patient extends Person {
     public void removeAppointment(Appointment appointment) {
         appointments.remove(appointment);
     }
-    public List<Medication> getMedications() {
+    public List<src.Model.Medication> getMedications() {
         return medications;
     }
 
-    public void setMedications(List<Medication> medications) {
+    public void setMedications(List<src.Model.Medication> medications) {
         this.medications = medications;
     }
 
 
     @Override
     public String toString() {
-        return "Patient [ID: " + patientID + ", Contact Info: " + contactInfo +
+        return "src.model.Patient [ID: " + patientID + ", Contact Info: " + contactInfo +
                 ", Appointments: " + appointments + ", Medications: " + medications + "]";
     }
 
