@@ -10,4 +10,5 @@ public interface IRepository<T> {
     void update(T obj);
     void delete(int id);
     Map<Integer,T> getAll();
+    T getById(int id);
 }

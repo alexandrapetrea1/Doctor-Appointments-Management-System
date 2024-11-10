@@ -4,45 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Doctor extends src.Model.Person {
-    private List<src.Model.Specialization> specializations;
-    private int workingHours;
-    private List<Appointment> appointments;
+    private List<Integer> specializationsIDs;
+    private List<Integer> appointmentsIDs;
+    private List<Integer> clinicsIDs;
 
-    public Doctor(String firstName, String lastName, int doctorID, List<src.Model.Specialization> specializations, String workingHours) {
+
+    public List<Integer> getclinicsIDs() {
+        return clinicsIDs;
+    }
+
+    public void setclinicsIDs(List<Integer> clinicsIDs) {
+        this.clinicsIDs = clinicsIDs;
+    }
+
+    public void setSpecializations(List<Integer> specializationsIDs) {
+        this.specializationsIDs = specializationsIDs;
+    }
+
+    public Doctor(String firstName, String lastName, List<Integer> specializationsIDs) {
         super(firstName, lastName);
-        this.setId(doctorID);
-        this.specializations = specializations;
-        this.appointments = new ArrayList<>();
+        this.id = this.generateId();
+        this.specializationsIDs = specializationsIDs;
+        this.appointmentsIDs = new ArrayList<>();
     }
 
-    public List<src.Model.Specialization> getSpecializations(){
-        return this.specializations;
+    public List<Integer> getSpecializations(){
+        return this.specializationsIDs;
     }
 
-    public void setSpecialization(List<src.Model.Specialization> specializations){
-        this.specializations = specializations;
+    public void setSpecialization(List<Integer> specializationsIDs){
+        this.specializationsIDs = specializationsIDs;
     }
 
-    public int getWorkingHours() {
-        return workingHours;
+
+    public List<Integer> getAppointments() {
+        return appointmentsIDs;
     }
 
-    public void setWorkingHours(int workingHours){
-        this.workingHours = workingHours;
+    public void setAppointments(List<Integer> appointmentsIDs) {
+        this.appointmentsIDs = appointmentsIDs;
     }
 
-    public List<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
-    }
-
-    @Override
-    public String toString() {
-        return "src.model.Doctor [ID: " + this.getId() + ", Name: " + getFirstName() + " " + getLastName() +
-                ", Specializations: " + specializations + ", Working Hours: " + workingHours +
-                ", Appointments: " + appointments + "]";
-    }
 }

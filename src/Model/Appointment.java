@@ -5,15 +5,15 @@ import java.time.LocalDateTime;
 public class Appointment extends Identifiable {
 
     private LocalDateTime dateTime;
-    private src.Model.Patient patient;
-    private Doctor doctor;
+    private int patientID;
+    private int doctorID;
     private String reason;
 
-    public Appointment(int appointmentID, LocalDateTime dateTime, src.Model.Patient patient, Doctor doctor, String reason) {
-        this.setId(appointmentID);
+    public Appointment(LocalDateTime dateTime, int patientID, int doctorID, String reason) {
+        this.id = this.generateId();
         this.dateTime = dateTime;
-        this.patient = patient;
-        this.doctor = doctor;
+        this.patientID = patientID;
+        this.doctorID = doctorID;
         this.reason = reason;
     }
 
@@ -26,13 +26,6 @@ public class Appointment extends Identifiable {
         this.dateTime = dateTime;
     }
 
-    public src.Model.Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(src.Model.Patient patient) {
-        this.patient = patient;
-    }
 
     public String getReason(){
         return this.reason;
@@ -42,11 +35,19 @@ public class Appointment extends Identifiable {
         this.reason = reason;
     }
 
-    @Override
-    public String toString() {
-        return "src.model.Appointment [ID: " + this.getId() + ", Date and Time : " + dateTime  +
-                ", src.model.Patient: " + patient.getFirstName() + " " + patient.getLastName() +
-                ", src.model.Doctor: " + doctor.getFirstName() + " " + doctor.getLastName() +
-                ", Reason: " + reason + "]";
+    public int getPatientID() {
+        return patientID;
+    }
+
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
+    }
+
+    public int getDoctorID() {
+        return doctorID;
+    }
+
+    public void setDoctorID(int doctorID) {
+        this.doctorID = doctorID;
     }
 }

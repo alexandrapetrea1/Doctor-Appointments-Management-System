@@ -6,36 +6,38 @@ import java.util.List;
 
 public class Clinic extends Identifiable {
 
-    private List<Doctor> listOfDoctors;
-    private String operatingHours;
+    private List<Integer> listOfDoctorsIDs;
+    private String address;
 
-    public Clinic(int clinicID, String operatingHours) {
-        this.setId(clinicID);
-        this.operatingHours = operatingHours;
-        this.listOfDoctors = new ArrayList<>();
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Clinic(List<Integer> listOfDoctorsIDs, String address) {
+        this.id = this.getId();
+        this.listOfDoctorsIDs = listOfDoctorsIDs;
+        this.address = address;
     }
 
 
-    public List<Doctor> getListOfDoctors() {
-        return listOfDoctors;
+    public List<Integer> getlistOfDoctorsIDs() {
+        return listOfDoctorsIDs;
     }
 
-    public void setListOfDoctors(List<Doctor> listOfDoctors) {
-        this.listOfDoctors = listOfDoctors;
+    public void setlistOfDoctorsIDs(List<Integer> listOfDoctorsIDs) {
+        this.listOfDoctorsIDs = listOfDoctorsIDs;
     }
 
-    public String getOperatingHours(){
-        return operatingHours;
-    }
 
-    public void setOperatingHours(String operatingHours) {
-        this.operatingHours = operatingHours;
-    }
     @Override
     public String toString() {
         return "src.model.Clinic [ID: " + this.getId() +
-                ", Operating Hours: " + operatingHours +
-                ", Doctors: " + listOfDoctors + "]";
+                ", Operating Hours: " +
+                ", Doctors: " + listOfDoctorsIDs + "]";
     }
 
 

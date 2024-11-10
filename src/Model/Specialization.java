@@ -4,8 +4,8 @@ public class Specialization extends Identifiable{
     private String name;
     private String description;
 
-    public Specialization(int specializationID, String name, String description) {
-        this.setId(specializationID);
+    public Specialization(String name, String description) {
+        this.id = this.generateId();
         this.name = name;
         this.description = description;
     }

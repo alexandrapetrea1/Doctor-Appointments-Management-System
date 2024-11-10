@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Patient extends src.Model.Person {
     private ContactInfo contactInfo;
-    private List<Appointment> appointments;
-    private List<src.Model.Medication> medications;
+    private List<Integer> appointmentIDs;
+    private List<Integer> medicationIDs;
 
-    public Patient(String firstName, String lastName, int patientID, ContactInfo contactInfo) {
+    public Patient(String firstName, String lastName, ContactInfo contactInfo) {
         super(firstName, lastName);
-        this.setId(patientID);
+        this.id = this.generateId();
         this.contactInfo = contactInfo;
-        this.appointments = new ArrayList<>();
+        this.appointmentIDs = new ArrayList<>();
     }
 
     public ContactInfo getContactInfo(){
@@ -24,26 +24,26 @@ public class Patient extends src.Model.Person {
         this.contactInfo = contactInfo;
     }
 
-    public List<Appointment> getAppointments() {
-        return appointments;
+    public List<Integer> getAppointments() {
+        return appointmentIDs;
     }
 
-    public void removeAppointment(Appointment appointment) {
-        appointments.remove(appointment);
+    public void removeAppointment(Integer appointment) {
+        appointmentIDs.remove(appointment);
     }
-    public List<src.Model.Medication> getMedications() {
-        return medications;
+    public List<Integer> getMedications() {
+        return medicationIDs;
     }
 
-    public void setMedications(List<src.Model.Medication> medications) {
-        this.medications = medications;
+    public void setMedications(List<Integer> medicationIDs) {
+        this.medicationIDs = medicationIDs;
     }
 
 
     @Override
     public String toString() {
         return "src.model.Patient [ID: " + this.getId() + ", Contact Info: " + contactInfo +
-                ", Appointments: " + appointments + ", Medications: " + medications + "]";
+                ", Appointments: " + appointmentIDs + ", Medications: " + medicationIDs + "]";
     }
 
 }

@@ -43,4 +43,9 @@ public class InMemoryRepository<T extends Identifiable> implements IRepository<T
     public Map<Integer, T> getAll() {
         return new HashMap<>(data);
     }
+
+    @Override
+    public T getById(int id) {
+        return data.get(id);
+    }
 }
