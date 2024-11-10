@@ -4,24 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Clinic {
-    private int clinicID;
+public class Clinic extends Identifiable {
+
     private List<Doctor> listOfDoctors;
     private String operatingHours;
 
     public Clinic(int clinicID, String operatingHours) {
-        this.clinicID = clinicID;
+        this.setId(clinicID);
         this.operatingHours = operatingHours;
         this.listOfDoctors = new ArrayList<>();
     }
 
-    public int getClinicID() {
-        return clinicID;
-    }
-
-    public void setClinicID(int clinicID) {
-        this.clinicID = clinicID;
-    }
 
     public List<Doctor> getListOfDoctors() {
         return listOfDoctors;
@@ -40,7 +33,7 @@ public class Clinic {
     }
     @Override
     public String toString() {
-        return "src.model.Clinic [ID: " + clinicID +
+        return "src.model.Clinic [ID: " + this.getId() +
                 ", Operating Hours: " + operatingHours +
                 ", Doctors: " + listOfDoctors + "]";
     }

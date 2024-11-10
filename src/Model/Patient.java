@@ -5,20 +5,15 @@ import java.util.List;
 
 
 public class Patient extends src.Model.Person {
-    private int patientID;
     private ContactInfo contactInfo;
     private List<Appointment> appointments;
     private List<src.Model.Medication> medications;
 
     public Patient(String firstName, String lastName, int patientID, ContactInfo contactInfo) {
         super(firstName, lastName);
-        this.patientID = patientID;
+        this.setId(patientID);
         this.contactInfo = contactInfo;
         this.appointments = new ArrayList<>();
-    }
-
-    public int getPatientID(){
-        return this.patientID;
     }
 
     public ContactInfo getContactInfo(){
@@ -47,7 +42,7 @@ public class Patient extends src.Model.Person {
 
     @Override
     public String toString() {
-        return "src.model.Patient [ID: " + patientID + ", Contact Info: " + contactInfo +
+        return "src.model.Patient [ID: " + this.getId() + ", Contact Info: " + contactInfo +
                 ", Appointments: " + appointments + ", Medications: " + medications + "]";
     }
 
