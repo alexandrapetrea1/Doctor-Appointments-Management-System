@@ -1,6 +1,6 @@
 package src.Model;
 
-public abstract class Person{
+public abstract class Person extends Identifiable{
     private String firstName;
     private String lastName;
 

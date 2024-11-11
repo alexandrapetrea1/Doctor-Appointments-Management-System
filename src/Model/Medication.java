@@ -1,25 +1,15 @@
 package src.Model;
 
-public class Medication {
-    private int medicationID;
+public class Medication extends Identifiable {
     private String medicationName;
     private String dosage;
-    private src.Model.Patient patient;
 
-    public Medication(int medicationID, String name, String dosage, src.Model.Patient patient) {
-        this.medicationID = medicationID;
+    public Medication(String name, String dosage) {
+        this.id = this.generateId();
         this.medicationName = name;
         this.dosage = dosage;
-        this.patient = patient;
     }
 
-    public int getMedicationID() {
-        return medicationID;
-    }
-
-    public void setMedicationID(int medicationID) {
-        this.medicationID = medicationID;
-    }
 
     public String getMedicationName() {
         return medicationName;
@@ -37,18 +27,10 @@ public class Medication {
         this.dosage = dosage;
     }
 
-    public src.Model.Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(src.Model.Patient patient) {
-        this.patient = patient;
-    }
 
     @Override
     public String toString() {
-        return "src.model.Medication [ID: " + medicationID + ", Name: " + medicationName +
-                ", Dosage: " + dosage + ", src.model.Patient: " + patient.getFirstName() +
-                " " + patient.getLastName() + "]";
+        return "src.model.Medication [ID: " + this.getId() + ", Name: " + medicationName +
+                ", Dosage: " + dosage + ", src.model.Patient: " + "]";
     }
 }

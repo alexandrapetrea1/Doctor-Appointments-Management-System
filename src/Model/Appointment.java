@@ -2,45 +2,30 @@ package src.Model;
 
 import java.time.LocalDateTime;
 
-public class Appointment {
+public class Appointment extends Identifiable {
 
-    private int appointmentID;
     private LocalDateTime dateTime;
-    private src.Model.Patient patient;
-    private Doctor doctor;
+    private int patientID;
+    private int doctorID;
     private String reason;
 
-    public Appointment(int appointmentID, LocalDateTime dateTime, src.Model.Patient patient, Doctor doctor, String reason) {
-        this.appointmentID = appointmentID;
+    public Appointment(LocalDateTime dateTime, int patientID, int doctorID, String reason) {
+        this.id = this.generateId();
         this.dateTime = dateTime;
-        this.patient = patient;
-        this.doctor = doctor;
+        this.patientID = patientID;
+        this.doctorID = doctorID;
         this.reason = reason;
     }
 
-    public int getAppointmentID() {
-        return appointmentID;
-    }
-
-    public void setAppointmentID(int appointmentID) {
-        this.appointmentID = appointmentID;
-    }
 
     public String getDateTime(){
         return this.dateTime.toString();
     }
 
-    public void setDateTime(String date) {
+    public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
-    public src.Model.Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(src.Model.Patient patient) {
-        this.patient = patient;
-    }
 
     public String getReason(){
         return this.reason;
@@ -50,11 +35,19 @@ public class Appointment {
         this.reason = reason;
     }
 
-    @Override
-    public String toString() {
-        return "src.model.Appointment [ID: " + appointmentID + ", Date and Time : " + dateTime  +
-                ", src.model.Patient: " + patient.getFirstName() + " " + patient.getLastName() +
-                ", src.model.Doctor: " + doctor.getFirstName() + " " + doctor.getLastName() +
-                ", Reason: " + reason + "]";
+    public int getPatientID() {
+        return patientID;
+    }
+
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
+    }
+
+    public int getDoctorID() {
+        return doctorID;
+    }
+
+    public void setDoctorID(int doctorID) {
+        this.doctorID = doctorID;
     }
 }

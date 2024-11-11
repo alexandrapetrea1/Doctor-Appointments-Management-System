@@ -4,45 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Clinic {
-    private int clinicID;
-    private List<Doctor> listOfDoctors;
-    private String operatingHours;
+public class Clinic extends Identifiable {
 
-    public Clinic(int clinicID, String operatingHours) {
-        this.clinicID = clinicID;
-        this.operatingHours = operatingHours;
-        this.listOfDoctors = new ArrayList<>();
+    private List<Integer> listOfDoctorsIDs;
+    private String address;
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public int getClinicID() {
-        return clinicID;
+    public String getAddress() {
+        return address;
     }
 
-    public void setClinicID(int clinicID) {
-        this.clinicID = clinicID;
+    public Clinic(List<Integer> listOfDoctorsIDs, String address) {
+        this.id = this.getId();
+        this.listOfDoctorsIDs = listOfDoctorsIDs;
+        this.address = address;
     }
 
-    public List<Doctor> getListOfDoctors() {
-        return listOfDoctors;
+
+    public List<Integer> getlistOfDoctorsIDs() {
+        return listOfDoctorsIDs;
     }
 
-    public void setListOfDoctors(List<Doctor> listOfDoctors) {
-        this.listOfDoctors = listOfDoctors;
+    public void setlistOfDoctorsIDs(List<Integer> listOfDoctorsIDs) {
+        this.listOfDoctorsIDs = listOfDoctorsIDs;
     }
 
-    public String getOperatingHours(){
-        return operatingHours;
-    }
 
-    public void setOperatingHours(String operatingHours) {
-        this.operatingHours = operatingHours;
-    }
     @Override
     public String toString() {
-        return "src.model.Clinic [ID: " + clinicID +
-                ", Operating Hours: " + operatingHours +
-                ", Doctors: " + listOfDoctors + "]";
+        return "src.model.Clinic [ID: " + this.getId() +
+                ", Operating Hours: " +
+                ", Doctors: " + listOfDoctorsIDs + "]";
     }
 
 
