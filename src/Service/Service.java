@@ -28,6 +28,31 @@ public class Service {
     }
 
    public void addSomeValues() {
+        Clinic clinic1 = new Clinic("Nova Clinic", "Str. T. Vladimirescu 19");
+        Clinic clinic2 = new Clinic("Medica", "Str. Mircea Eliade 33");
+        Clinic clinic3 = new Clinic("Regina Maria", "Str. Eugen Ionescu 32-37");
+        clinicRepository.create(clinic1);
+        clinicRepository.create(clinic2);
+        clinicRepository.create(clinic3);
+
+        Specialization specialization1 = new Specialization("ginecolog", "opens legs");
+        Specialization specialization2 = new Specialization("oftalmolog", "opens eyes");
+        Specialization specialization3 = new Specialization("dentist", "opens mouths");
+        specializationRepository.create(specialization1);
+        specializationRepository.create(specialization2);
+        specializationRepository.create(specialization3);
+
+        Doctor doctor1 = new Doctor("Victor", "Rusu", specialization1);
+        Doctor doctor2 = new Doctor("Tudor", "Ivancea", specialization2);
+        Doctor doctor3 = new Doctor("Alex", "Luca", specialization3);
+        addDoctor(doctor1);
+        addDoctor(doctor2);
+        addDoctor(doctor3);
+
+        Patient patient1 = new Patient("Alexandra", "Bercu", new ContactInfo("0725896874","bercualexandra@gmail.com" ,"Strada Narciselor 4"));
+        addPatient(patient1);
+
+
 
    }
 
