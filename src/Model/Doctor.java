@@ -4,45 +4,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Doctor extends src.Model.Person {
-    private List<Integer> specializationsIDs;
-    private List<Integer> appointmentsIDs;
-    private List<Integer> clinicsIDs;
+    private  Specialization specialization;
+    private List<Appointment> appointments;
+    private List<Clinic> clinics;
 
 
-    public List<Integer> getclinicsIDs() {
-        return clinicsIDs;
-    }
 
-    public void setclinicsIDs(List<Integer> clinicsIDs) {
-        this.clinicsIDs = clinicsIDs;
-    }
 
-    public void setSpecializations(List<Integer> specializationsIDs) {
-        this.specializationsIDs = specializationsIDs;
-    }
 
-    public Doctor(String firstName, String lastName, List<Integer> specializationsIDs) {
+
+    public Doctor(String firstName, String lastName, Specialization specialization) {
         super(firstName, lastName);
         this.id = this.generateId();
-        this.specializationsIDs = specializationsIDs;
-        this.appointmentsIDs = new ArrayList<>();
+        this.specialization = specialization;
+        this.appointments = new ArrayList<>();
+        this.clinics = new ArrayList<>();
     }
 
-    public List<Integer> getSpecializations(){
-        return this.specializationsIDs;
+    public Specialization getSpecialization() {
+        return specialization;
     }
 
-    public void setSpecialization(List<Integer> specializationsIDs){
-        this.specializationsIDs = specializationsIDs;
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
     }
 
-
-    public List<Integer> getAppointments() {
-        return appointmentsIDs;
+    public List<Appointment> getAppointments() {
+        return appointments;
     }
 
-    public void setAppointments(List<Integer> appointmentsIDs) {
-        this.appointmentsIDs = appointmentsIDs;
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
     }
 
+    public List<Clinic> getClinics() {
+        return clinics;
+    }
+
+    public void setClinics(List<Clinic> clinics) {
+        this.clinics = clinics;
+    }
 }

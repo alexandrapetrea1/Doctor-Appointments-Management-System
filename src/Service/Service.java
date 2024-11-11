@@ -5,7 +5,9 @@ import src.Repository.InMemoryRepository;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Service {
     private final InMemoryRepository<Appointment> appointmentRepository;
@@ -25,34 +27,96 @@ public class Service {
         addSomeValues();
     }
 
-    public void addAppointment(String date, int patientID, int doctorID, String reason){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime dateTime = LocalDateTime.parse(date, formatter);
-        appointmentRepository.create(new Appointment(dateTime, patientID, doctorID, reason));
-    }
+   public void addSomeValues() {
 
-    public void addDoctor(String firstName, String lastName, List<Integer> specializations){
-        doctorRepository.create(new Doctor(firstName, lastName, specializations));
-    }
+   }
 
-    public void addPatient(String firstName, String lastName, List<Integer> specializations, String phoneNumber, String email, String address){
-        patientRepository.create(new Patient(firstName, lastName, new ContactInfo(phoneNumber, email, address)));
-    }
+   public void addAppointment(Appointment appointment) {
+        appointmentRepository.create(appointment);
+   }
 
-    public void addClinic(List<Integer> doctorIDs, String address){
-        clinicRepository.create(new Clinic(doctorIDs, address));
-    }
+   public void removeAppointment(Appointment appointment) {
+        appointmentRepository.delete(appointment.getId());
+   }
 
-    public void addSpecizlization(String name, String description){
-        specializationRepository.create(new Specialization(name, description));
-    }
+   public void addClinic(Clinic clinic) {
+        clinicRepository.create(clinic);
+   }
 
-    public void addMedication(String name, String dosage){
-        medicationRepository.create(new Medication(name, dosage));
-    }
+   public void removeClinic(Clinic clinic) {
+        clinicRepository.delete(clinic.getId());
+   }
 
+   public void addMedication(Medication medication) {
+        medicationRepository.create(medication);
+   }
+   public void removeMedication(Medication medication) {
+        medicationRepository.delete(medication.getId());
+   }
 
-    private void addSomeValues(){
+   public void addSpecialization(Specialization specialization) {
+        specializationRepository.create(specialization);
+   }
+   public void removeSpecialization(Specialization specialization) {
+        specializationRepository.delete(specialization.getId());
+   }
 
-    }
+   public void updateAppointment(Appointment appointment) {
+        appointmentRepository.update(appointment);
+   }
+
+   public void updateClinic(Clinic clinic) {
+        clinicRepository.update(clinic);
+   }
+
+   public void updateMedication(Medication medication) {
+        medicationRepository.update(medication);
+   }
+   public void updateSpecialization(Specialization specialization) {
+        specializationRepository.update(specialization);
+   }
+
+   public void addDoctor(Doctor doctor) {
+        doctorRepository.create(doctor);
+   }
+
+   public void removeDoctor(Doctor doctor) {
+        doctorRepository.delete(doctor.getId());
+   }
+
+   public void addPatient(Patient patient) {
+        patientRepository.create(patient);
+   }
+   public void removePatient(Patient patient) {
+        patientRepository.delete(patient.getId());
+   }
+
+   public void updateDoctor(Doctor doctor) {
+        doctorRepository.update(doctor);
+   }
+   public void updatePatient(Patient patient) {
+        patientRepository.update(patient);
+   }
+
+   public Map<Integer, Appointment> getAppointments() {
+        return appointmentRepository.getAll();
+   }
+   public Map<Integer, Clinic> getClinics() {
+        return clinicRepository.getAll();
+   }
+
+   public Map<Integer, Doctor> getDoctors(){
+        return doctorRepository.getAll();
+   }
+
+   public Map<Integer, Patient> getPatients() {
+        return patientRepository.getAll();
+   }
+   public Map<Integer, Specialization> getSpecializations() {
+        return specializationRepository.getAll();
+   }
+   public Map<Integer, Medication> getMedications() {
+        return medicationRepository.getAll();
+   }
+
 }

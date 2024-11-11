@@ -5,15 +5,15 @@ import java.time.LocalDateTime;
 public class Appointment extends Identifiable {
 
     private LocalDateTime dateTime;
-    private int patientID;
-    private int doctorID;
+    private Patient patient;
+    private Doctor doctor;
     private String reason;
 
-    public Appointment(LocalDateTime dateTime, int patientID, int doctorID, String reason) {
+    public Appointment(LocalDateTime dateTime, Patient patient, Doctor doctor, String reason) {
         this.id = this.generateId();
         this.dateTime = dateTime;
-        this.patientID = patientID;
-        this.doctorID = doctorID;
+        this.patient = patient;
+        this.doctor = doctor;
         this.reason = reason;
     }
 
@@ -35,19 +35,19 @@ public class Appointment extends Identifiable {
         this.reason = reason;
     }
 
-    public int getPatientID() {
-        return patientID;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatientID(int patientID) {
-        this.patientID = patientID;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
-    public int getDoctorID() {
-        return doctorID;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setDoctorID(int doctorID) {
-        this.doctorID = doctorID;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 }
