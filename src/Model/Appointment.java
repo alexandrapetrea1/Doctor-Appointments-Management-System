@@ -10,13 +10,22 @@ public class Appointment extends Identifiable {
     private String reason;
 
     public Appointment(LocalDateTime dateTime, Patient patient, Doctor doctor, String reason) {
-        this.id = this.generateId();
+        super();
         this.dateTime = dateTime;
         this.patient = patient;
         this.doctor = doctor;
         this.reason = reason;
     }
 
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "dateTime=" + dateTime +
+                ", patient=" + patient +
+                ", doctor=" + doctor +
+                ", reason='" + reason + '\'' +
+                '}';
+    }
 
     public String getDateTime(){
         return this.dateTime.toString();

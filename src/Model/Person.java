@@ -5,6 +5,7 @@ public abstract class Person extends Identifiable{
     private String lastName;
 
     public Person(String firstName, String lastName) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
     }

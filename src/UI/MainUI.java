@@ -28,9 +28,9 @@ public class MainUI {
             System.out.println("3. Login as Patient");
             int choice = scanner.nextInt();
             switch(choice){
-                case 1: adminUI.start();
-                case 2: doctorUI.start();
-                case 3: patientUI.start();
+                case 1: adminUI.start(); break;
+                case 2: doctorUI.start(); break;
+                case 3: patientUI.start(); break;
                 default: running = false;
             }
 

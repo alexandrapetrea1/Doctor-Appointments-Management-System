@@ -144,4 +144,11 @@ public class Service {
         return medicationRepository.getAll();
    }
 
+   public Clinic getClinicById(int id){
+        return clinicRepository.getById(id);
+   }
+
+   public Doctor getDoctorById(int id){
+        return doctorRepository.getById(id);
+   }
 }

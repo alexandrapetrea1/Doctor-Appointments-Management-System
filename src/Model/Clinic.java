@@ -35,10 +35,14 @@ public class Clinic extends Identifiable {
     }
 
     public Clinic(String name, String address) {
-        this.id = this.getId();
+        super();
         this.name = name;
         this.address = address;
         this.listOfDoctors = new ArrayList<>();
+    }
+
+    public void addDoctor(Doctor doctor) {
+        this.listOfDoctors.add(doctor);
     }
 
 

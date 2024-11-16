@@ -9,9 +9,15 @@ public class Doctor extends src.Model.Person {
     private List<Clinic> clinics;
 
 
-
-
-
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "specialization=" + specialization +
+                ", appointments=" + appointments +
+                ", clinics=" + clinics +
+                ", id=" + id +
+                '}';
+    }
 
     public Doctor(String firstName, String lastName, Specialization specialization) {
         super(firstName, lastName);
