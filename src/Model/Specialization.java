@@ -30,7 +30,7 @@ public class Specialization extends Identifiable{
 
     @Override
     public String toString() {
-        return "src.model.Specialization [ID: " + this.getId() + ", Name: " + name +
+        return "Specialization [ID: " + this.getId() + ", Name: " + name +
                 ", Description: " + description + "]";
     }
 }

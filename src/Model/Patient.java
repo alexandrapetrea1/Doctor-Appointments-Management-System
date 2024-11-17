@@ -34,5 +34,13 @@ public class Patient extends src.Model.Person {
     public void removeMedication(Medication medication) {this.medications.remove(medication); }
 
 
-
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "contactInfo=" + contactInfo +
+                ", appointments=" + appointments +
+                ", medications=" + medications +
+                ", id=" + id +
+                '}';
+    }
 }

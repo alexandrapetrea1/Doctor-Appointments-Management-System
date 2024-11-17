@@ -37,6 +37,6 @@ public class ContactInfo {
 
     @Override
     public String toString() {
-        return "src.model.ContactInfo [Phone: " + phoneNumber + ", Email: " + email + ", Address: " + address + "]";
+        return "ContactInfo [Phone: " + phoneNumber + ", Email: " + email + ", Address: " + address + "]";
     }
 }

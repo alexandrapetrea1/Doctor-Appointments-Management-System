@@ -5,6 +5,7 @@ import src.Repository.InMemoryRepository;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -151,4 +152,50 @@ public class Service {
    public Doctor getDoctorById(int id){
         return doctorRepository.getById(id);
    }
+
+    public Patient getPatientById(int id) {
+        return patientRepository.getById(id);
+    }
+
+
+    public List<Clinic> findNearbyClinics(String address) {
+        // Implement logic to find clinics near the address
+        // Placeholder for now:
+        return clinicRepository.getAll().values().stream().toList();
+    }
+
+    public List<Doctor> findDoctorsBySpecialization(String specializationName) {
+        return doctorRepository.getAll().values().stream()
+                .filter(doctor -> doctor.getSpecialization().getName().equalsIgnoreCase(specializationName))
+                .toList();
+    }
+
+    public List<Medication> getMedicationsForPatient(Patient patient) {
+        // Placeholder logic for retrieving medications
+        return medicationRepository.getAll().values().stream()
+                .filter(medication -> medication.getPatientId() == patient.getId())
+                .toList();
+    }
+
+    public boolean validateDateTime(String dateTime) {
+        try {
+            LocalDateTime.parse(dateTime, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+    }
+
+    public boolean createAppointment(Patient patient, Doctor doctor, String dateTime, String reason) {
+        try {
+            LocalDateTime appointmentTime = LocalDateTime.parse(dateTime, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            Appointment appointment = new Appointment(appointmentTime, patient, doctor,  reason);
+            addAppointment(appointment); // Add to the repository
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error creating appointment: " + e.getMessage());
+            return false;
+        }
+    }
+
 }
