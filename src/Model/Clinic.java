@@ -6,7 +6,8 @@ import java.util.List;
 
 public class Clinic extends Identifiable {
 
-    private List<Integer> listOfDoctorsIDs;
+    private List<Doctor> listOfDoctors;
+    private String name;
     private String address;
 
     public void setAddress(String address) {
@@ -17,28 +18,40 @@ public class Clinic extends Identifiable {
         return address;
     }
 
-    public Clinic(List<Integer> listOfDoctorsIDs, String address) {
-        this.id = this.getId();
-        this.listOfDoctorsIDs = listOfDoctorsIDs;
+    public List<Doctor> getListOfDoctors() {
+        return listOfDoctors;
+    }
+
+    public void setListOfDoctors(List<Doctor> listOfDoctors) {
+        this.listOfDoctors = listOfDoctors;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Clinic(String name, String address) {
+        super();
+        this.name = name;
         this.address = address;
+        this.listOfDoctors = new ArrayList<>();
     }
 
-
-    public List<Integer> getlistOfDoctorsIDs() {
-        return listOfDoctorsIDs;
+    public void addDoctor(Doctor doctor) {
+        this.listOfDoctors.add(doctor);
     }
-
-    public void setlistOfDoctorsIDs(List<Integer> listOfDoctorsIDs) {
-        this.listOfDoctorsIDs = listOfDoctorsIDs;
-    }
-
 
     @Override
     public String toString() {
-        return "src.model.Clinic [ID: " + this.getId() +
-                ", Operating Hours: " +
-                ", Doctors: " + listOfDoctorsIDs + "]";
+        return "Clinic{" +
+                "listOfDoctors=" + listOfDoctors +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", id=" + id +
+                '}';
     }
-
-
 }

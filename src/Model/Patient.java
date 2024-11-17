@@ -6,14 +6,15 @@ import java.util.List;
 
 public class Patient extends src.Model.Person {
     private ContactInfo contactInfo;
-    private List<Integer> appointmentIDs;
-    private List<Integer> medicationIDs;
+    private List<Appointment> appointments;
+    private List<Medication> medications;
 
     public Patient(String firstName, String lastName, ContactInfo contactInfo) {
         super(firstName, lastName);
         this.id = this.generateId();
         this.contactInfo = contactInfo;
-        this.appointmentIDs = new ArrayList<>();
+        this.appointments = new ArrayList<>();
+        this.medications = new ArrayList<>();
     }
 
     public ContactInfo getContactInfo(){
@@ -24,26 +25,22 @@ public class Patient extends src.Model.Person {
         this.contactInfo = contactInfo;
     }
 
-    public List<Integer> getAppointments() {
-        return appointmentIDs;
+    public void removeAppointment(Appointment appointment) {
+        appointments.remove(appointment);
     }
+    public void addAppointment(Appointment appointment) { appointments.add(appointment); }
 
-    public void removeAppointment(Integer appointment) {
-        appointmentIDs.remove(appointment);
-    }
-    public List<Integer> getMedications() {
-        return medicationIDs;
-    }
-
-    public void setMedications(List<Integer> medicationIDs) {
-        this.medicationIDs = medicationIDs;
-    }
+    public void addMedication(Medication medication) { this.medications.add(medication); }
+    public void removeMedication(Medication medication) {this.medications.remove(medication); }
 
 
     @Override
     public String toString() {
-        return "src.model.Patient [ID: " + this.getId() + ", Contact Info: " + contactInfo +
-                ", Appointments: " + appointmentIDs + ", Medications: " + medicationIDs + "]";
+        return "Patient{" +
+                "contactInfo=" + contactInfo +
+                ", appointments=" + appointments +
+                ", medications=" + medications +
+                ", id=" + id +
+                '}';
     }
-
 }

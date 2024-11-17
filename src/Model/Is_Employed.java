@@ -23,6 +23,6 @@ public class Is_Employed {
 
     @Override
     public String toString() {
-        return "Employment [src.model.Doctor ID: " + doctorID + ", src.model.Clinic ID: " + clinicID + "]";
+        return "Employment [ ID: " + doctorID + ", src.model.Clinic ID: " + clinicID + "]";
     }
 }

@@ -1,15 +1,15 @@
-# Doctor-Appointments-Management-System
+# src.Model.Doctor-Appointments-Management-System
 
 
 ## Application Description
 
 This application is designed to help clinics and patients efficiently manage doctor appointments in an organized manner. The system offers functionalities for scheduling, modifying, and canceling appointments, as well as managing information about doctors, patients, and their appointments.
 
-### Main Features:
+### src.Main Features:
 
 1. **Scheduling Appointments**: Patients can schedule appointments with available doctors based on specialization and available time slots.
 2. **Modifying or Canceling Appointments**: Patients and clinics can modify or cancel appointments, and the system automatically updates the available slots.
-3. **Doctor Information Management**: The administration can add and update information about doctors, such as specializations, working hours, and contact details.
+3. **src.Model.Doctor Information Management**: The administration can add and update information about doctors, such as specializations, working hours, and contact details.
 
 
 ### Application Objectives:

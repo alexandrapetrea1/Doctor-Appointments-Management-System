@@ -4,7 +4,16 @@ public abstract class Person extends Identifiable{
     private String firstName;
     private String lastName;
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
     public Person(String firstName, String lastName) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -24,8 +33,4 @@ public abstract class Person extends Identifiable{
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return "Name: " + firstName + " " + lastName;
-    }
 }

@@ -4,45 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Doctor extends src.Model.Person {
-    private List<Integer> specializationsIDs;
-    private List<Integer> appointmentsIDs;
-    private List<Integer> clinicsIDs;
+    private  Specialization specialization;
 
-
-    public List<Integer> getclinicsIDs() {
-        return clinicsIDs;
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "First Name='" + getFirstName() + '\'' +
+                ", Last Name='" + getLastName() + '\'' +
+                "specialization=" + specialization +
+                ", id=" + id +
+                '}';
     }
 
-    public void setclinicsIDs(List<Integer> clinicsIDs) {
-        this.clinicsIDs = clinicsIDs;
-    }
-
-    public void setSpecializations(List<Integer> specializationsIDs) {
-        this.specializationsIDs = specializationsIDs;
-    }
-
-    public Doctor(String firstName, String lastName, List<Integer> specializationsIDs) {
+    public Doctor(String firstName, String lastName, Specialization specialization) {
         super(firstName, lastName);
         this.id = this.generateId();
-        this.specializationsIDs = specializationsIDs;
-        this.appointmentsIDs = new ArrayList<>();
+        this.specialization = specialization;
     }
 
-    public List<Integer> getSpecializations(){
-        return this.specializationsIDs;
+    public Specialization getSpecialization() {
+        return specialization;
     }
 
-    public void setSpecialization(List<Integer> specializationsIDs){
-        this.specializationsIDs = specializationsIDs;
-    }
-
-
-    public List<Integer> getAppointments() {
-        return appointmentsIDs;
-    }
-
-    public void setAppointments(List<Integer> appointmentsIDs) {
-        this.appointmentsIDs = appointmentsIDs;
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
     }
 
 }

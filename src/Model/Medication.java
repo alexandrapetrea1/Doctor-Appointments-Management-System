@@ -3,6 +3,7 @@ package src.Model;
 public class Medication extends Identifiable {
     private String medicationName;
     private String dosage;
+    private Patient patient;
 
     public Medication(String name, String dosage) {
         this.id = this.generateId();
@@ -30,7 +31,11 @@ public class Medication extends Identifiable {
 
     @Override
     public String toString() {
-        return "src.model.Medication [ID: " + this.getId() + ", Name: " + medicationName +
-                ", Dosage: " + dosage + ", src.model.Patient: " + "]";
+        return "Medication [ID: " + this.getId() + ", Name: " + medicationName +
+                ", Dosage: " + dosage + ", Patient: " + patient.getId() + " " +  patient.getFirstName() + " " + patient.getLastName();
+    }
+
+    public int getPatientId() {
+        return this.patient.getId();
     }
 }
