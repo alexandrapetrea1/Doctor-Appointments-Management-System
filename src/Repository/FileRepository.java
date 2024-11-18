@@ -72,8 +72,11 @@ public class FileRepository<T extends Identifiable> implements IRepository<T> {
     }
 
     private void writeDataToFile(Map<Integer, T> data) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
-            oos.writeObject(data);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (Map.Entry<Integer, T> entry : data.entrySet()) {
+                writer.write(entry.getKey() + "=" + entry.getValue().toString());
+                writer.newLine();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,1 @@
+20=Specialization.txt [ID: 20, Name: dentist, Description: opens mouths]

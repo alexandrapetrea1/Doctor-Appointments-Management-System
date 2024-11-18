@@ -4,6 +4,7 @@ public class Specialization extends Identifiable{
     private String name;
     private String description;
 
+
     public Specialization(String name, String description) {
         super();
         this.name = name;
@@ -30,7 +31,7 @@ public class Specialization extends Identifiable{
 
     @Override
     public String toString() {
-        return "Specialization [ID: " + this.getId() + ", Name: " + name +
+        return "Specialization.txt [ID: " + this.getId() + ", Name: " + name +
                 ", Description: " + description + "]";
     }
 }

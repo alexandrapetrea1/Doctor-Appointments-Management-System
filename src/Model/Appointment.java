@@ -9,6 +9,7 @@ public class Appointment extends Identifiable {
     private Doctor doctor;
     private String reason;
 
+
     public Appointment(LocalDateTime dateTime, Patient patient, Doctor doctor, String reason) {
         super();
         this.dateTime = dateTime;
@@ -19,7 +20,7 @@ public class Appointment extends Identifiable {
 
     @Override
     public String toString() {
-        return "Appointment{" +
+        return "Appointment.txt{" +
                 "dateTime=" + dateTime +
                 ", patient=" + patient +
                 ", doctor=" + doctor +

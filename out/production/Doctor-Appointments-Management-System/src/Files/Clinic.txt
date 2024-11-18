@@ -1,0 +1,1 @@
+17=Clinic{listOfDoctors=[], name='Regina Maria', address='Str. Eugen Ionescu 32-37', id=17}

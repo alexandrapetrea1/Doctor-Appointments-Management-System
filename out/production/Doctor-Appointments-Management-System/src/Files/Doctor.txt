@@ -1,0 +1,1 @@
+26=Doctor{First Name='Alex', Last Name='Luca'specialization=Specialization.txt [ID: 20, Name: dentist, Description: opens mouths], id=26}

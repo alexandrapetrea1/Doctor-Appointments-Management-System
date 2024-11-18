@@ -8,6 +8,7 @@ import src.UI.AdminUI;
 import src.UI.DoctorUI;
 import src.UI.MainUI;
 import src.UI.PatientUI;
+import src.Repository.FileRepository;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,6 +24,17 @@ public class Main {
         AdminUI adminUI = new AdminUI(controller);
         PatientUI patientUI = new PatientUI(controller);
         MainUI mainUI = new MainUI(controller, adminUI, doctorUI, patientUI);
+
+        FileRepository<Appointment> appointmentFileRepository = new FileRepository<>("src/Files/Appointment.txt");
+        FileRepository<Clinic> clinicFileRepository = new FileRepository<>("src/Files/Clinic.txt");
+        FileRepository<Doctor> doctorFileRepository = new FileRepository<>("src/Files/Doctor.txt");
+        FileRepository<Patient> patientFileRepository = new FileRepository<>("src/Files/Patient.txt");
+        FileRepository<Medication> medicationFileRepository = new FileRepository<>("src/Files/Medication.txt");
+        FileRepository<Specialization> specializationFileRepository= new FileRepository<>("src/Files/Specialization.txt");
+
+        FileRepository<Medication> medicationRepo = new FileRepository<>("src/Files/Medication.txt");
+        Service service1 = new Service(appointmentFileRepository, doctorFileRepository, patientFileRepository, clinicFileRepository, medicationFileRepository, specializationFileRepository);
+
 
         mainUI.start();
     }

@@ -5,6 +5,7 @@ public class ContactInfo {
     private String email;
     private String address;
 
+
     public ContactInfo(String phoneNumber, String email, String address) {
         this.phoneNumber = phoneNumber;
         this.email = email;

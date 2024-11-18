@@ -120,7 +120,6 @@ public class Controller {
         return service.createAppointment(patient, doctor, dateTime, reason);
     }
 
-
     public List<Clinic> getAllClinics() {
         return service.getClinics().values().stream().toList();
     }

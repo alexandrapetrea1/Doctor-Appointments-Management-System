@@ -9,6 +9,7 @@ public class Patient extends src.Model.Person {
     private List<Appointment> appointments;
     private List<Medication> medications;
 
+
     public Patient(String firstName, String lastName, ContactInfo contactInfo) {
         super(firstName, lastName);
         this.id = this.generateId();

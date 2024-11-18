@@ -1,6 +1,7 @@
 package src.Service;
 
 import src.Model.*;
+import src.Repository.IRepository;
 import src.Repository.InMemoryRepository;
 
 import java.time.LocalDateTime;
@@ -9,16 +10,20 @@ import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collectors;
+
 
 public class Service {
-    private final InMemoryRepository<Appointment> appointmentRepository;
-    private final InMemoryRepository<Doctor> doctorRepository;
-    private final InMemoryRepository<Patient> patientRepository;
-    private final InMemoryRepository<Clinic> clinicRepository;
-    private final InMemoryRepository<Medication> medicationRepository;
-    private final InMemoryRepository<Specialization> specializationRepository;
+    private final IRepository<Appointment> appointmentRepository;
+    private final IRepository<Doctor> doctorRepository;
+    private final IRepository<Patient> patientRepository;
+    private final IRepository<Clinic> clinicRepository;
+    private final IRepository<Medication> medicationRepository;
+    private final IRepository<Specialization> specializationRepository;
 
-    public Service(InMemoryRepository<Appointment> appointmentRepository, InMemoryRepository<Doctor> doctorRepository, InMemoryRepository<Patient> patientRepository, InMemoryRepository<Clinic> clinicRepository, InMemoryRepository<Medication> medicationRepository, InMemoryRepository<Specialization> specializationRepository) {
+    public Service(IRepository<Appointment> appointmentRepository, IRepository<Doctor> doctorRepository, IRepository<Patient> patientRepository, IRepository<Clinic> clinicRepository, IRepository<Medication> medicationRepository, IRepository<Specialization> specializationRepository) {
         this.appointmentRepository = appointmentRepository;
         this.doctorRepository = doctorRepository;
         this.patientRepository = patientRepository;
@@ -185,6 +190,8 @@ public class Service {
             return false;
         }
     }
+
+
 
     public boolean createAppointment(Patient patient, Doctor doctor, String dateTime, String reason) {
         try {

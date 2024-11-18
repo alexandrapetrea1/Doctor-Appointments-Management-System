@@ -22,7 +22,7 @@ public class AdminUI {
             System.out.println("3. Show All (Appointments/Doctors/Clinics/Patients)");
             System.out.println("4. Update Clinic Details");
             System.out.println("5. Update Doctor Details");
-            System.out.println("6. Update Patient Details");
+            System.out.println("6. Update Patient.txt Details");
             System.out.println("0. Exit");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
@@ -166,7 +166,7 @@ public class AdminUI {
         System.out.println("Available Patients:");
         controller.getService().getPatients().values().forEach(System.out::println);
 
-        System.out.println("Enter Patient ID to update: ");
+        System.out.println("Enter Patient.txt ID to update: ");
         int patientId = sc.nextInt();
         sc.nextLine(); // Consume newline
 
@@ -181,9 +181,9 @@ public class AdminUI {
             if (!newLastName.isBlank()) patient.setLastName(newLastName);
 
             controller.updatePatient(patient);
-            System.out.println("Patient details updated successfully.");
+            System.out.println("Patient.txt details updated successfully.");
         } else {
-            System.out.println("Invalid Patient ID.");
+            System.out.println("Invalid Patient.txt ID.");
         }
     }
 }

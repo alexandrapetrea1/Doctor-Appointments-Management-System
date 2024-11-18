@@ -1,0 +1,1 @@
+28=Patient{contactInfo=ContactInfo [Phone: 0725896874, Email: bercualexandra@gmail.com, Address: Strada Narciselor 4], appointments=[], medications=[], id=28}

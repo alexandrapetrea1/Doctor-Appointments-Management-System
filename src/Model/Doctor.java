@@ -6,6 +6,7 @@ import java.util.List;
 public class Doctor extends src.Model.Person {
     private  Specialization specialization;
 
+
     @Override
     public String toString() {
         return "Doctor{" +
