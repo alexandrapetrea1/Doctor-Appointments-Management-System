@@ -25,8 +25,11 @@ public class AdminUI {
             System.out.println("4. Update Clinic Details");
             System.out.println("5. Update Doctor Details");
             System.out.println("6. Update Patient.txt Details");
-            System.out.println("7. Sort doctors by specialization");
-            System.out.println("8. Sort appointments by date");
+            System.out.println("7. Filter doctors by specialization");
+            System.out.println("8. Filter appointments by date");
+            System.out.println("9. Sort Doctor by Name and date");
+            System.out.println("10. Sort Appointment ");
+            System.out.println("11. Display future appointments");
             System.out.println("0. Exit");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
@@ -38,8 +41,11 @@ public class AdminUI {
                 case 4 -> updateClinicDetails();
                 case 5 -> updateDoctorDetails();
                 case 6 -> updatePatientDetails();
-                case 7 -> sortdoctorsbyspecialization();
-                case 8 -> sortappointmentbydate();
+                case 7 -> filterdoctorsbyspecialization();
+                case 8 -> filterappointmentbydate();
+                case 9 -> SortedAppointmentsByDoctorAndDate();
+                case 10 -> SortedAppointmentsByDate();
+                case 11 -> displayFutureAppointments();
                 case 0 -> {
                     System.out.println("Exiting Admin UI...");
                     return;
@@ -193,7 +199,7 @@ public class AdminUI {
         }
     }
 
-    private void sortdoctorsbyspecialization() {
+    private void filterdoctorsbyspecialization() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter specialization name: ");
         String specializationName = sc.nextLine();
@@ -206,13 +212,13 @@ public class AdminUI {
         }
     }
 
-    private void sortappointmentbydate() {
+    private void filterappointmentbydate() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter date(format: yyyy-MM-dd): ");
         String dateInput = scanner.nextLine();
         try {
             LocalDate date = LocalDate.parse(dateInput);
-            List<Appointment> appointments = controller.getAppointmentsSortedByDateTime(date);
+            List<Appointment> appointments = controller. getAppointmentsByDate(date);
             if (appointments.isEmpty()) {
                 System.out.println("No appointments found for the date: " + date);
             } else {
@@ -224,6 +230,52 @@ public class AdminUI {
         }
 
     }
+
+    private void SortedAppointmentsByDoctorAndDate() {
+
+        List<Appointment> sortedAppointments = controller.getSortedAppointmentsByDoctorAndDate();
+
+
+        if (sortedAppointments.isEmpty()) {
+            System.out.println("No appointments found.");
+        } else {
+            System.out.println("Appointments sorted by doctor and date:");
+            sortedAppointments.forEach(appointment -> {
+                System.out.println("Doctor: " + appointment.getDoctor().getLastName() + ", " + appointment.getDoctor().getFirstName() +
+                        " | Date: " + appointment.getDateTime() +
+                        " | Patient: " + appointment.getPatient().getLastName() + ", " + appointment.getPatient().getFirstName());
+            });
+        }
+    }
+
+    private void SortedAppointmentsByDate() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter sorting order (1 for ascending, 2 for descending): ");
+        int choice = sc.nextInt();
+
+        boolean ascending = (choice == 1);
+
+        List<Appointment> sortedAppointments = controller.getSortedAppointmentsByDate(ascending);
+
+        if (sortedAppointments.isEmpty()) {
+            System.out.println("No appointments found.");
+        } else {
+            System.out.println("Appointments sorted by date:");
+            sortedAppointments.forEach(System.out::println);
+        }
+    }
+
+    private void displayFutureAppointments() {
+        List<Appointment> futureAppointments = controller.getFutureAppointments();
+
+        if (futureAppointments.isEmpty()) {
+            System.out.println("No future appointments found.");
+        } else {
+            System.out.println("Future appointments:");
+            futureAppointments.forEach(System.out::println);
+        }
+    }
+
 
 
 }

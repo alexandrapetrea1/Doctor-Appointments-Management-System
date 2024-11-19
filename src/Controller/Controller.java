@@ -125,15 +125,27 @@ public class Controller {
         return service.getClinics().values().stream().toList();
     }
 
-    public List<Doctor> getDoctorsSortedBySpecialization() {
-        return service.sortDoctorsBySpecialization();
-    }
-
-    public List<Appointment> getAppointmentsSortedByDateTime(LocalDate date) {
-        return service.sortAppointmentsByDateTime();
-    }
-
-    public List<Doctor> getDoctorsByFilteredSpecialization(String specializationName) {
+    public List<Doctor> getDoctorsSortedBySpecialization(String specializationName) {
         return service.filterDoctorsBySpecialization(specializationName);
+    }
+
+
+
+    public List<Appointment> getAppointmentsByDate(LocalDate date) {
+        return service.filterAppointmentsByDate(date);
+    }
+
+
+
+    public List<Appointment> getSortedAppointmentsByDate(boolean ascending) {
+        return service.sortAppointmentsByDate(ascending);
+    }
+
+    public List<Appointment> getSortedAppointmentsByDoctorAndDate() {
+        return service.sortAppointmentsByDoctorAndDate();
+    }
+
+    public List<Appointment> getFutureAppointments() {
+        return service.filterFutureAppointments();
     }
 }

@@ -7,6 +7,7 @@ import src.Repository.InMemoryRepository;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -58,12 +59,19 @@ public class Service {
         addDoctor(doctor2);
         addDoctor(doctor3);
 
-        Patient patient1 = new Patient("Alexandra", "Bercu", new ContactInfo("0725896874","bercualexandra@gmail.com" ,"Strada Narciselor 4"));
+        Patient patient0 = new Patient("Alexandra", "Bercu", new ContactInfo("0725896874","bercualexandra@gmail.com" ,"Strada Narciselor 4"));
+        Patient patient1 = new Patient("Ion", "Popescu", new ContactInfo("0723000001", "ion.popescu@gmail.com", "Strada Unirii 10"));
+        Patient patient2 = new Patient("Maria", "Ionescu", new ContactInfo("0732000002", "maria.ionescu@gmail.com", "Strada Libertății 5"));
+        Patient patient3 = new Patient("George", "Vasilescu", new ContactInfo("0743000003", "george.vasilescu@gmail.com", "Strada Păcii 20"));
+        Patient patient4 = new Patient("Ana", "Dumitrescu", new ContactInfo("0753000004", "ana.dumitrescu@gmail.com", "Strada Primăverii 12"));
+        Patient patient5 = new Patient("Alex", "Mateescu", new ContactInfo("0763000005", "alex.mateescu@gmail.com", "Bulevardul Florilor 15"));
+        addPatient(patient0);
         addPatient(patient1);
-
-
-
-   }
+        addPatient(patient2);
+        addPatient(patient3);
+        addPatient(patient4);
+        addPatient(patient5);
+    }
 
    public void addAppointment(Appointment appointment) {
         appointmentRepository.create(appointment);
@@ -208,21 +216,62 @@ public class Service {
         }
     }
 
-    public List<Doctor> sortDoctorsBySpecialization() {
-            List<Doctor> doctors = new ArrayList<>(doctorRepository.getAll().values());
-            doctors.sort(Comparator.comparing(d -> d.getSpecialization().getName()));
-            return doctors;
-        }
-    public List<Appointment> sortAppointmentsByDateTime() {
-            List<Appointment> appointments = new ArrayList<>(appointmentRepository.getAll().values());
-            appointments.sort(Comparator.comparing(Appointment::getDateTime));
-            return appointments;
-        }
-
     public List<Doctor> filterDoctorsBySpecialization(String specializationName) {
         return doctorRepository.getAll().values().stream()
-                .filter(d -> d.getSpecialization().getName().equalsIgnoreCase(specializationName))
+                .filter(doctor -> doctor.getSpecialization().getName().equalsIgnoreCase(specializationName)) // Comparăm numele specializării
                 .collect(Collectors.toList());
     }
+
+
+
+    public List<Appointment> filterAppointmentsByDate(LocalDate date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+
+        return appointmentRepository.getAll().values().stream()
+                .filter(appointment -> {
+                    try {
+                        LocalDateTime dateTime = LocalDateTime.parse(appointment.getDateTime(), formatter);
+                        return dateTime.toLocalDate().equals(date);
+                    } catch (Exception e) {
+                        System.out.println("Error parsing date for appointment: " + appointment);
+                        return false;
+                    }
+                })
+                .collect(Collectors.toList());
+    }
+
+
+
+
+    public List<Appointment> sortAppointmentsByDoctorAndDate() {
+        return appointmentRepository.getAll().values().stream()
+                .sorted(Comparator
+                        .comparing((Appointment a) -> a.getDoctor().getLastName())
+                        .thenComparing(Appointment::getDateTime)
+                )
+                .collect(Collectors.toList());
+    }
+
+    public List<Appointment> sortAppointmentsByDate(boolean ascending) {
+        return appointmentRepository.getAll().values().stream()
+                .sorted(ascending
+                        ? Comparator.comparing(Appointment::getDateTime)
+                        : Comparator.comparing(Appointment::getDateTime).reversed())
+                .collect(Collectors.toList());
+    }
+
+    public List<Appointment> filterFutureAppointments() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+
+        return appointmentRepository.getAll().values().stream()
+                .filter(appointment -> {
+                    LocalDateTime appointmentDateTime = LocalDateTime.parse(appointment.getDateTime(), formatter);
+                    return appointmentDateTime.isAfter(now);
+                })
+                .sorted(Comparator.comparing(appointment -> LocalDateTime.parse(appointment.getDateTime(), formatter)))
+                .collect(Collectors.toList());
+    }
+
 
 }
