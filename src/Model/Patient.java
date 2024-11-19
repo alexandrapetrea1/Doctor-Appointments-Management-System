@@ -26,9 +26,10 @@ public class Patient extends Person  {
 
     @Override
     public String toString() {
-        return "Patient{" +
-                "contactInfo=" + contactInfo +
-                ", id=" + id +
-                '}';
+        return "Patient: " +
+                " First name: " + this.getFirstName() +
+                " | Last name: " + getLastName()
+                + contactInfo +
+                " | id: " + id;
     }
 }

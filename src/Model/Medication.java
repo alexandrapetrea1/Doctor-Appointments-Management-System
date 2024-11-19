@@ -7,10 +7,11 @@ public class Medication extends Identifiable implements Serializable {
     private String dosage;
     private Patient patient;
 
-    public Medication(String name, String dosage) {
+    public Medication(String name, String dosage, Patient patient) {
         super();
         this.medicationName = name;
         this.dosage = dosage;
+        this.patient = patient;
     }
 
 
@@ -33,8 +34,8 @@ public class Medication extends Identifiable implements Serializable {
 
     @Override
     public String toString() {
-        return "Medication [ID: " + this.getId() + ", Name: " + medicationName +
-                ", Dosage: " + dosage + ", Patient: " + patient.getId() + " " +  patient.getFirstName() + " " + patient.getLastName();
+        return "Medication:   Name: " + medicationName +
+                " | Dosage: " + dosage + " | Patient: " + patient.getFirstName() + " " + patient.getLastName();
     }
 
     public int getPatientId() {

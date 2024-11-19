@@ -10,7 +10,7 @@ public abstract class Person extends Identifiable {
     public String toString() {
         return "Person{" +
                 "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "| lastName='" + lastName + '\'' +
                 '}';
     }
 

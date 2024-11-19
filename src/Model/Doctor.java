@@ -9,12 +9,11 @@ public class Doctor extends Person  {
 
     @Override
     public String toString() {
-        return "Doctor{" +
-                "First Name='" + getFirstName() + '\'' +
-                ", Last Name='" + getLastName() + '\'' +
-                "specialization=" + specialization +
-                ", id=" + id +
-                '}';
+        return "Doctor: " +
+                "First Name: " + getFirstName() + '\'' +
+                " | Last Name: " + getLastName() + '\'' +
+                " | specialization: " + specialization.getName() + "description: " + specialization.getDescription() +
+                " | id: " + id;
     }
 
     public Doctor(String firstName, String lastName, Specialization specialization) {

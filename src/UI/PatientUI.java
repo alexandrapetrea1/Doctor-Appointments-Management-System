@@ -57,12 +57,15 @@ public class PatientUI {
     private Patient login() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your Patient ID: ");
-        int id = Integer.parseInt(sc.nextLine());
+        int id = sc.nextInt();
         sc.nextLine(); // Consume newline
 
         Patient patient = controller.getPatientById(id);
         if (patient == null) {
             System.out.println("Invalid Patient ID.");
+        }
+        else {
+            System.out.println("Login successful. Welcome " + patient.getFirstName() + " " + patient.getLastName() + "!");
         }
         return patient;
     }
@@ -92,7 +95,7 @@ public class PatientUI {
 
         Doctor doctor = controller.getDoctorById(doctorId);
         if (doctor == null) {
-            System.out.println("Invalid Doctor ID. Appointment.txt not created.");
+            System.out.println("Invalid Doctor ID. Appointment not created.");
             return;
         }
 
@@ -108,7 +111,7 @@ public class PatientUI {
         String reason = sc.nextLine();
 
         if (controller.createAppointment(patient, doctor, dateTimeInput, reason)) {
-            System.out.println("Appointment.txt successfully created.");
+            System.out.println("Appointment successfully created.");
         } else {
             System.out.println("Failed to create appointment. Please check the details and try again.");
         }

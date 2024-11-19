@@ -21,12 +21,11 @@ public class Appointment extends Identifiable implements Serializable {
 
     @Override
     public String toString() {
-        return "Appointment.txt{" +
-                "dateTime=" + dateTime +
-                ", patient=" + patient +
-                ", doctor=" + doctor +
-                ", reason='" + reason + '\'' +
-                '}';
+        return "Appointment: " +
+                "date: " + dateTime +
+                " | patient=" + patient.getFirstName() + " " + patient.getLastName() +
+                " | doctor: " + doctor.getFirstName() + " " + doctor.getLastName() +
+                " | reason='" + reason + '\'';
     }
 
     public String getDateTime(){

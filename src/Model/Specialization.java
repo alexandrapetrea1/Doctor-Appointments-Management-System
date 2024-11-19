@@ -33,7 +33,7 @@ public class Specialization extends Identifiable implements Serializable {
 
     @Override
     public String toString() {
-        return "Specialization.txt [ID: " + this.getId() + ", Name: " + name +
-                ", Description: " + description + "]";
+        return "Specialization: ID: " + this.getId() + " | Name: " + name +
+                " | Description: " + description;
     }
 }

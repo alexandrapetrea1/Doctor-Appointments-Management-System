@@ -85,7 +85,7 @@ public class DoctorUI {
                 try {
                     boolean updated = controller.updateAppointmentDateTime(appointment, newDateTime);
                     if (updated) {
-                        System.out.println("Appointment.txt updated successfully.");
+                        System.out.println("Appointment updated successfully.");
                     } else {
                         System.out.println("No changes were made to the appointment.");
                     }
@@ -125,7 +125,7 @@ public class DoctorUI {
                 System.out.println("Enter dosage instructions:");
                 String dosage = scanner.nextLine();
 
-                Medication medication = new Medication(medicationName, dosage);
+                Medication medication = new Medication(medicationName, dosage, patient);
                 controller.addMedication(medication); // Assuming the service stores this medication
                 System.out.println("Medication prescribed successfully to " + patient.getFirstName() + " " + patient.getLastName() + ".");
             } else {
@@ -139,7 +139,7 @@ public class DoctorUI {
         System.out.println("\nYour Profile:");
         System.out.println("First Name: " + doctor.getFirstName());
         System.out.println("Last Name: " + doctor.getLastName());
-        System.out.println("Specialization.txt: " + doctor.getSpecialization().getName());
+        System.out.println("Specialization: " + doctor.getSpecialization().getName());
 
         System.out.println("\nWould you like to edit your profile? (yes/no)");
         String choice = scanner.nextLine();

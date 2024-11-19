@@ -48,11 +48,9 @@ public class Clinic extends Identifiable implements Serializable {
 
     @Override
     public String toString() {
-        return "Clinic{" +
-                "listOfDoctors=" + listOfDoctors +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", id=" + id +
-                '}';
+        return "Clinic: " +
+                " | name: '" + name + '\'' +
+                " | address: " + address + '\'' +
+                " | id: " + id;
     }
 }

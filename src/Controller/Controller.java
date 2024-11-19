@@ -39,7 +39,7 @@ public class Controller {
 
     public List<Appointment> getAppointmentsFromDoctor(Doctor doctor) {
         List<Appointment> appointments = new java.util.ArrayList<>(service.getAppointments().values().stream().toList());
-        appointments.removeIf(appointment -> !appointment.getDoctor().equals(doctor));
+        appointments.removeIf(appointment -> appointment.getDoctor().getId() != doctor.getId());
         return appointments;
     }
 
@@ -108,7 +108,9 @@ public class Controller {
 
     // Retrieve prescribed medications for a patient
     public List<Medication> getPrescribedMedications(Patient patient) {
-        return service.getMedicationsForPatient(patient);
+        List<Medication> medications = new java.util.ArrayList<>(service.getMedications().values().stream().toList());
+        medications.removeIf(appointment -> appointment.getPatientId() != patient.getId());
+        return medications;
     }
 
     // Validate date and time format

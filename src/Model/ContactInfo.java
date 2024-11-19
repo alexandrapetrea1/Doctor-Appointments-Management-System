@@ -40,6 +40,6 @@ public class ContactInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "ContactInfo [Phone: " + phoneNumber + ", Email: " + email + ", Address: " + address + "]";
+        return "Phone: " + phoneNumber + " | Email: " + email + " | Address: " + address;
     }
 }

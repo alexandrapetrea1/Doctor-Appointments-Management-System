@@ -187,10 +187,7 @@ public class Service {
     }
 
     public List<Medication> getMedicationsForPatient(Patient patient) {
-        // Placeholder logic for retrieving medications
-        return medicationRepository.getAll().values().stream()
-                .filter(medication -> medication.getPatientId() == patient.getId())
-                .toList();
+       return medicationRepository.getAll().values().stream().toList();
     }
 
     public boolean validateDateTime(String dateTime) {
