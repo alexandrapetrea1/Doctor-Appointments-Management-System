@@ -3,6 +3,8 @@ package src.UI;
 import src.Controller.Controller;
 import src.Model.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,6 +25,8 @@ public class AdminUI {
             System.out.println("4. Update Clinic Details");
             System.out.println("5. Update Doctor Details");
             System.out.println("6. Update Patient.txt Details");
+            System.out.println("7. Sort doctors by specialization");
+            System.out.println("8. Sort appointments by date");
             System.out.println("0. Exit");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
@@ -34,6 +38,8 @@ public class AdminUI {
                 case 4 -> updateClinicDetails();
                 case 5 -> updateDoctorDetails();
                 case 6 -> updatePatientDetails();
+                case 7 -> sortdoctorsbyspecialization();
+                case 8 -> sortappointmentbydate();
                 case 0 -> {
                     System.out.println("Exiting Admin UI...");
                     return;
@@ -186,4 +192,38 @@ public class AdminUI {
             System.out.println("Invalid Patient.txt ID.");
         }
     }
+
+    private void sortdoctorsbyspecialization() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter specialization name: ");
+        String specializationName = sc.nextLine();
+        List<Doctor> doctors = controller.getDoctorsBySpecialization(specializationName);
+        if (doctors.isEmpty()) {
+            System.out.println("No doctors found with specialization: " + specializationName);
+        } else {
+            System.out.println("Doctors with specialization '" + specializationName + "':");
+            doctors.forEach(System.out::println);
+        }
+    }
+
+    private void sortappointmentbydate() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter date(format: yyyy-MM-dd): ");
+        String dateInput = scanner.nextLine();
+        try {
+            LocalDate date = LocalDate.parse(dateInput);
+            List<Appointment> appointments = controller.getAppointmentsSortedByDateTime(date);
+            if (appointments.isEmpty()) {
+                System.out.println("No appointments found for the date: " + date);
+            } else {
+                System.out.println("Appointments on " + date + ":");
+                appointments.forEach(System.out::println);
+            }
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid date format. Please use yyyy-MM-dd.");
+        }
+
+    }
+
+
 }

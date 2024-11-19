@@ -1,6 +1,8 @@
 package src.Model;
 
-public abstract class Person extends Identifiable{
+import java.io.Serializable;
+
+public abstract class Person extends Identifiable {
     private String firstName;
     private String lastName;
 

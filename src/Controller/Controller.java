@@ -3,6 +3,7 @@ package src.Controller;
 import src.Model.*;
 import src.Service.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -122,5 +123,17 @@ public class Controller {
 
     public List<Clinic> getAllClinics() {
         return service.getClinics().values().stream().toList();
+    }
+
+    public List<Doctor> getDoctorsSortedBySpecialization() {
+        return service.sortDoctorsBySpecialization();
+    }
+
+    public List<Appointment> getAppointmentsSortedByDateTime(LocalDate date) {
+        return service.sortAppointmentsByDateTime();
+    }
+
+    public List<Doctor> getDoctorsByFilteredSpecialization(String specializationName) {
+        return service.filterDoctorsBySpecialization(specializationName);
     }
 }

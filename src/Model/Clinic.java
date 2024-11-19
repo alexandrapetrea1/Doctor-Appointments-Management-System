@@ -1,10 +1,11 @@
 package src.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Clinic extends Identifiable {
+public class Clinic extends Identifiable implements Serializable {
 
     private List<Doctor> listOfDoctors;
     private String name;

@@ -3,7 +3,7 @@ package src.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Doctor extends src.Model.Person {
+public class Doctor extends Person  {
     private  Specialization specialization;
 
 
@@ -19,7 +19,6 @@ public class Doctor extends src.Model.Person {
 
     public Doctor(String firstName, String lastName, Specialization specialization) {
         super(firstName, lastName);
-        this.id = this.generateId();
         this.specialization = specialization;
     }
 

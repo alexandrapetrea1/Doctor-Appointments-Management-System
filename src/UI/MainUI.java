@@ -37,7 +37,7 @@ public class MainUI {
             System.out.println("Welcome to Doctor Appointments Management System");
             System.out.println("1. Login as Admin");
             System.out.println("2. Login as Doctor");
-            System.out.println("3. Login as Patient.txt");
+            System.out.println("3. Login as Patient");
             System.out.println("Anything else - exit program");
             int choice = scanner.nextInt();
             switch(choice){

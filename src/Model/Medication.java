@@ -1,12 +1,14 @@
 package src.Model;
 
-public class Medication extends Identifiable {
+import java.io.Serializable;
+
+public class Medication extends Identifiable implements Serializable {
     private String medicationName;
     private String dosage;
     private Patient patient;
 
     public Medication(String name, String dosage) {
-        this.id = this.generateId();
+        super();
         this.medicationName = name;
         this.dosage = dosage;
     }

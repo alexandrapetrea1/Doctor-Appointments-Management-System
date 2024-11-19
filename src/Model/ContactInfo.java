@@ -1,6 +1,8 @@
 package src.Model;
 
-public class ContactInfo {
+import java.io.Serializable;
+
+public class ContactInfo implements Serializable {
     private String phoneNumber;
     private String email;
     private String address;

@@ -18,7 +18,7 @@ public class PatientUI {
     }
 
     public void start() {
-        System.out.println("Welcome to Patient.txt UI");
+        System.out.println("Welcome to Patient UI");
         Patient patient = login();
         if (patient == null) {
             System.out.println("Invalid login. Exiting.");
@@ -56,13 +56,13 @@ public class PatientUI {
 
     private Patient login() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your Patient.txt ID: ");
-        int id = sc.nextInt();
+        System.out.println("Enter your Patient ID: ");
+        int id = Integer.parseInt(sc.nextLine());
         sc.nextLine(); // Consume newline
 
         Patient patient = controller.getPatientById(id);
         if (patient == null) {
-            System.out.println("Invalid Patient.txt ID.");
+            System.out.println("Invalid Patient ID.");
         }
         return patient;
     }

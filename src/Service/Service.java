@@ -1,9 +1,12 @@
 package src.Service;
 
 import src.Model.*;
+import src.Repository.FileRepository;
 import src.Repository.IRepository;
 import src.Repository.InMemoryRepository;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -33,7 +36,7 @@ public class Service {
         addSomeValues();
     }
 
-   public void addSomeValues() {
+    public void addSomeValues() {
         Clinic clinic1 = new Clinic("Nova Clinic", "Str. T. Vladimirescu 19");
         Clinic clinic2 = new Clinic("Medica", "Str. Mircea Eliade 33");
         Clinic clinic3 = new Clinic("Regina Maria", "Str. Eugen Ionescu 32-37");
@@ -203,6 +206,23 @@ public class Service {
             System.out.println("Error creating appointment: " + e.getMessage());
             return false;
         }
+    }
+
+    public List<Doctor> sortDoctorsBySpecialization() {
+            List<Doctor> doctors = new ArrayList<>(doctorRepository.getAll().values());
+            doctors.sort(Comparator.comparing(d -> d.getSpecialization().getName()));
+            return doctors;
+        }
+    public List<Appointment> sortAppointmentsByDateTime() {
+            List<Appointment> appointments = new ArrayList<>(appointmentRepository.getAll().values());
+            appointments.sort(Comparator.comparing(Appointment::getDateTime));
+            return appointments;
+        }
+
+    public List<Doctor> filterDoctorsBySpecialization(String specializationName) {
+        return doctorRepository.getAll().values().stream()
+                .filter(d -> d.getSpecialization().getName().equalsIgnoreCase(specializationName))
+                .collect(Collectors.toList());
     }
 
 }

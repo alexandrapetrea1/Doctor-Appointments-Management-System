@@ -1,6 +1,8 @@
 package src.Model;
 
-public class Specialization extends Identifiable{
+import java.io.Serializable;
+
+public class Specialization extends Identifiable implements Serializable {
     private String name;
     private String description;
 
