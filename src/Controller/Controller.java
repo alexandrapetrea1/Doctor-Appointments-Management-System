@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -17,6 +18,14 @@ public class Controller {
 
     public Service getService() {
         return service;
+    }
+
+    public List<Appointment> searchAppointment(int patientID, int doctorID) {
+        Patient patient = service.getPatientById(patientID);
+        Doctor doctor = service.getDoctorById(doctorID);
+        List<Appointment> appointments = new ArrayList<>(service.getAppointments().values().stream().toList());
+        appointments.removeIf(appointment -> patient.equals(appointment.getPatient()) && doctor.equals(appointment.getDoctor()));
+        return appointments;
     }
 
 

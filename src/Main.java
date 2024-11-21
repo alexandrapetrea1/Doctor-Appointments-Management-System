@@ -24,6 +24,7 @@ public class Main {
 //        AdminUI adminUI = new AdminUI(controller);
 //        PatientUI patientUI = new PatientUI(controller);
 //        MainUI mainUI = new MainUI(controller, adminUI, doctorUI, patientUI);
+//        mainUI.start();
 
         FileRepository<Appointment> appointmentFileRepository = new FileRepository<>("src/Files/Appointment.txt");
         FileRepository<Clinic> clinicFileRepository = new FileRepository<>("src/Files/Clinic.txt");

@@ -34,7 +34,7 @@ public class Service {
         this.clinicRepository = clinicRepository;
         this.medicationRepository = medicationRepository;
         this.specializationRepository = specializationRepository;
-        addSomeValues();
+        //addSomeValues();
     }
 
     public void addSomeValues() {

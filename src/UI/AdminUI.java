@@ -30,6 +30,7 @@ public class AdminUI {
             System.out.println("9. Sort Doctor by Name and date");
             System.out.println("10. Sort Appointment ");
             System.out.println("11. Display future appointments");
+            System.out.println("12. Search appointments after doctor and patient");
             System.out.println("0. Exit");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
@@ -46,6 +47,7 @@ public class AdminUI {
                 case 9 -> SortedAppointmentsByDoctorAndDate();
                 case 10 -> SortedAppointmentsByDate();
                 case 11 -> displayFutureAppointments();
+                case 12 -> searchAppointmentsByDoctorAndPatient();
                 case 0 -> {
                     System.out.println("Exiting Admin UI...");
                     return;
@@ -53,6 +55,16 @@ public class AdminUI {
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
+    }
+
+    private void searchAppointmentsByDoctorAndPatient() {
+        System.out.println("Enter patient ID");
+        Scanner scanner = new Scanner(System.in);
+        int patientID = scanner.nextInt();
+        System.out.println("Enter doctor ID");
+        int doctorID = scanner.nextInt();
+        controller.searchAppointment(patientID, doctorID).forEach(System.out::println);
+
     }
 
     // Add a new clinic
